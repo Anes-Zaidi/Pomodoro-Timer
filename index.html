@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e9fe71c9c7.js" crossorigin="anonymous"></script>   
+</head>
+<body>  
+    <div class="wraper">
+        <dialog class="userNameModal">
+            <form id="userForm">
+                <H1 >Hello There!👋🤍 </H1>
+                <hr>
+                <label for="userNameInput">Please tell us your name :</label>
+                <div class="Input">
+                    <input type="text" id="userNameInput" maxlength="15">
+                    <button type="submit" id="submitBtn">Submit</button>
+                </div>
+            </form>
+        </dialog>
+        <dialog id="setting-modal" class="modal">
+
+            <div class="modal-up"> 
+                <i class="fa-solid fa-x" id="exit-modal" ></i>
+            </div> 
+
+            <div class="modal-main">
+                <div class="setting-menu">
+                    <button class="settingsBtn active" id="generalBtn"><i class="fa-solid fa-cubes-stacked"></i> General</button>
+                    <button class="settingsBtn" id="timerBtn"><i class="fa-regular fa-clock"></i> Timers</button>
+                    <button class="settingsBtn" id="soundBtn"><i class="fa-regular fa-bell"></i> Alarm</button>
+                    <button class="settingsBtn" id="accountBtn"><i class="fa-regular fa-user"></i> Profile</button>
+                </div>
+
+                <div class="setting-content">
+                    <div class="general">
+                        <label for="options" id="theme">Themes:</label>
+                        <select name="options" id="themes">
+                            <option value="minimalist-black">Minimalist black</option>
+                            <option value="green">green</option>
+                            <option value="sakura" >Sakura street</option>
+                            <option value="aura">Aura</option>
+                            <option value="pinkClouds">Pink Clouds</option>
+                            <option value="darkClouds">Dark Clouds</option>
+                            <option value="archAlley">Arch Alley street</option>
+
+                        </select>
+                    </div>
+
+                    <div class="setTime">
+                        <div class="container">
+
+                            <div class="T-container">
+                                <label for="">Pomodoro
+                                    <input type="number" value="25" min="1" class="input" id="pomodoroTime">
+                                    <H6>Minutes</H6>
+                                </label>
+                            </div>
+
+                            <div class="T-container">
+                                <label for="">Short break
+                                    <input type="number" value="05" min="1" class="input" id="shortBreakTime">
+                                    <H6>Minutes</H6>
+                                </label>    
+                            </div>
+
+                            <div class="T-container">
+                                <label for="">Long break
+                                    <input type="number" value="10" min="1" class="input" id="longBreakTime">
+                                    <H6>Minutes</H6>
+                                </label>    
+                            </div>                  
+                        </div>
+
+                    </div>
+
+                    <div class="sounds">
+                        <div class="sounds-wraper">
+                            <div class="soundOption">
+                                <label for="sound-option" id="b">Alarm sound:</label>  
+                                <select name="sound-option" id="sound-option">
+                                    <option value="goodVibe">Good Vibe</option>
+                                    <option value="LevelUp">Level Up</option>
+                                    <option value="Classic">Classic</option>
+                                    <option value="SubwayChime">Subway station chime</option>
+                                    <option value="chime">Chime</option>
+                                </select>     
+
+                                <div class="soundBar">
+                                    <label for="volume-control"></label>
+                                    <input type="range" name="volume-control" max="1" min="0" value="0.5" step="0.01" id="volume-control">
+                                </div>                                
+                            </div>
+                            
+                            
+                            <div class="Repeat">
+                                <label for="number">Repeat :</label>
+                                <input type="number" min="1" max="5" value="1" id="repeatAlarm">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="accounts">
+                        <div class="d">
+                            <H2 id="profile-name">Your name :</H2>
+                            <button id="editUserNameBtn">Edit <i class="fa-regular fa-pen-to-square"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-bottom">
+                <button id="reset-button">Reset all</button>
+                <div class="SC"> 
+                    <button id="save-button">Save Changes</button>
+                </div>
+            </div>
+
+        </dialog>
+
+        <dialog class="sounds-modal">
+
+            <div class="sounds-up">
+                <div><h3 id="ST">Background sounds :</h3></div>
+                <button class="close-sounds-modal" id="closeSoundsBtn">Close</button>
+            </div>
+            <hr id="breakLine"></hr>
+
+            <div class="sounds-main">
+            </div>
+
+        </dialog>
+
+        <div class="topContent">
+
+            <div class="topRight">
+                <h2>Pomodoro timer</h2>
+                <p>By:ANAS.</p>
+            </div>
+
+            <div class="topLeft"></div>
+        </div>
+        <div class="mainContent" data-page="home">
+
+            <div class="mainContent-Timer hidden">
+                <div class="timerMenu">
+                    <div class="buttonsHolder">
+                        <button class="button active" id="pomodorobtn">pomodoro</button>
+                        <button class="button " id="shortbreakbtn">Short break</button>
+                        <button class="button " id="longbreakbtn">Long break</button>
+                    </div>
+                    
+                    <div class="timerContainer">
+                        
+                        <H1 id="time"></H1>
+                    </div>
+
+                    <div class="timerSettings">
+
+                        <button id="pausebtn" class="pause">Start</button>
+                        <span class="" id="rotate">
+                            <i class="fa-solid fa-rotate-right" style="color: #ffffff;" id="reload"></i>
+                        </span> 
+                    </div>
+                </div>                
+            </div>
+
+            <div class="mainContent-home">
+                
+                <div class="localTime">
+                    <div class="greetingText">
+                        <h2 id="greeting"></h2>  
+                        <h2 id="MT"></h2>
+                    </div>
+                    <div class="HomeTime">
+                        <H1 id="Current-Time"></H1>
+                        <h2 id="ampm"></h2> 
+                    </div>
+
+                </div>
+    
+            </div>
+
+
+        </div>
+
+        <div class="bottomContent">
+            <div class="bottomRight" id="BC">
+                <i class="fa-solid fa-volume-high btm"  id="sounds"></i>
+            </div>
+
+            <div class="bottomMid">
+
+                <div class="iconsContainer">
+                    <i class="fa-solid fa-house btm" id="HomePage"></i>
+                    <i class="fa-solid fa-bolt-lightning btm" id="timerPage"></i>                    
+                </div>
+
+            </div>
+            
+            <div class="bottomLeft" id="BC">
+                <i class="fa-solid fa-expand btm" id="expand"></i>
+                <i class="fa-solid fa-gear btm" id="gear"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

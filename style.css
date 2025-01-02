@@ -1,0 +1,1047 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+}
+body{
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    height: 100vh;
+}
+
+body::before{
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+/* ------------------------Top content styles----------------------------------------- */
+.topContent{
+    height: 30vh;
+    display: flex;
+}
+
+.topRight{
+    padding: 40px 45px;
+    font-size: 2em;
+    color: white;
+    width:80% ;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+
+
+
+/* ---------------------------------Main content styles -------------------------------------------------------------------------------------- */
+.mainContent{
+    height: 60vh;
+    width: 100%;
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;
+}   
+
+
+.mainContent button{
+    border-radius: 25px;
+    padding: 10px 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    background-color: transparent;
+    border: 1.5px solid white;
+    color: white;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.buttonsHolder{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.buttonsHolder button:hover{
+    animation-name: bgchange2;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
+
+.mainContent button.active{
+    background-color: white;
+    color: black;
+}
+
+.timerContainer h1{
+    text-align: center;
+    color: white;
+    font-size: 7em;
+    font-weight: bold;
+}
+
+.timerContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#songs{
+    max-width: 20%;
+}
+
+#gear{  
+    cursor: pointer;
+}
+#reload{
+    font-size: 2.5em;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.rotate{
+    animation-name: rotation;
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0, 0.26, 0.47, 1.02);
+}
+
+#pausebtn{
+    color: black;
+    background-color: white;
+}
+
+.timerSettings{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#pausebtn:hover{
+    animation-name: bgchange;
+    animation-duration: .5s;
+    animation-fill-mode: both;
+}
+
+#pausebtn{
+    width: 120px;
+}
+
+.localTime{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+#ampm{
+    color: white;
+    font-size: 3em;
+}
+
+
+#Current-Time{
+    font-size: 11em;
+    font-weight: 700;
+    color: white;
+}
+
+#greeting{
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.HomeTime{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 30vh;
+    justify-content: center;
+}
+
+#MT{
+    color: white;
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------------------------- */
+
+
+
+
+/* --------------------------------Bottom content styles --------------------------------------------------------*/ 
+.bottomRight{
+    width: auto;
+    margin-left: 100px;
+}
+
+.bottomContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+.btm{
+    font-size: 1.5em;
+    width: 35px;
+    color: rgb(255, 255, 255);
+    padding: 5px 5px;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.388);
+    text-align: center;
+    cursor: pointer;
+
+}
+
+.btm:hover{
+    background-color: rgb(162, 99, 255);
+}
+
+.activeBtn{
+    background-color: rgb(162, 99, 255);
+}
+
+.bottomLeft{
+    width: auto;
+    margin-right: 100px;
+}
+
+.bottomMid{
+    width: auto;
+    text-align: center;
+    align-items: center;
+}
+
+/* ------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+/* ------------------------------------Modals------------------------------------------ */
+
+.modal{
+    background-color: black;
+    border: 0 solid;
+    border-radius: 2em;
+    width: 60%;
+    min-height: 50vh;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 10px 10px;
+
+}
+
+.modal[open]{
+    animation: slide-down .6s cubic-bezier(0.01, 0.55, 0.54, 1) , fadeIn .6s cubic-bezier(0, 0.85, 0.56, 1.02)  ;
+}
+
+.modal[open]::backdrop{
+    animation: fadeIn .6s cubic-bezier(0.03, 0.56, 0.11, 0.95);
+}
+.modal[close]{
+    display: block;
+    animation: slide-up2 .4s cubic-bezier(0.01, 0.55, 0.54, 1),fadeOut .4s;
+}
+
+.modal[close]::backdrop{
+    animation: fadeOut .8s cubic-bezier(0.02, 0.48, 0.6, 1.02);
+    animation-fill-mode: both;
+
+}
+
+
+.modal-up{
+    display: flex;
+    justify-content: right;
+    padding: 10px 15px;
+}
+#exit-modal{
+    font-size: 1.6em;
+    color: rgb(125, 117, 117);
+    background-color: transparent;
+    border: 0 solid;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+#exit-modal:hover{
+    color: rgb(193, 190, 190);
+}   
+
+dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-main{
+    display: flex;
+    height: 65%;
+}
+
+.setting-menu{
+    display: flex;
+    flex-direction: column;
+    width : 10%;
+    margin-left: 25px;
+}
+
+.setting-menu button{
+    margin-bottom: 20px;
+    border: none;   
+    font-size: 1.1em;
+    background-color: transparent;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    background: none;
+    border-bottom:2px solid rgb(0, 0, 0);
+    border-radius: 1px;
+}
+
+.setting-menu button.active{
+    animation-name: BottomBorder; 
+    animation-duration: .3s;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.03, 0.05, 0.29, 0.94);
+}
+
+.setting-menu button:hover{
+    color: rgb(181, 181, 181);
+}
+
+.modal-bottom{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-bottom button{
+    font-size: 1.2em;
+    border-radius: 1.3em;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#close-button{
+    background-color: grey;
+    color: white;
+}
+
+#close-button:hover{
+    background-color: rgb(101, 101, 101);   
+}
+#reset-button{
+    color: red;
+    background-color: transparent;
+    border: 1px solid red;
+}
+
+#reset-button:hover{
+
+    animation-name: resetbtn;
+    animation-duration: .4s ;
+    animation-fill-mode: both;
+}
+
+#theme{
+    color: white;
+}
+#sounds{
+    font-size: 1.3em;
+}
+
+/* ----------------sounds modal ---------------------------------------------*/
+.sounds-modal{
+    width: 40%;
+    height: 100%;
+    margin-top: 20px; 
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.813);
+}
+.sounds-modal[open]{
+    animation: slide-Right .6s cubic-bezier(0.01, 0.7, 0.1, 1) , fadeIn .6s cubic-bezier(0.03, 0.56, 0.11, 0.95) ;
+}
+
+.sounds-modal[open]::backdrop{
+    animation: fadeIn .6s cubic-bezier(0.03, 0.56, 0.11, 0.95);
+}
+
+.sounds-modal[close]{
+    animation: fadeOut .5s cubic-bezier(0, 0.78, 0.23, 1) ,  slide-Left .7s cubic-bezier(0.01, 0.7, 0.1, 1);
+
+}
+
+.sounds-modal[close]::backdrop{
+    animation: fadeOut .5s cubic-bezier(0, 0.48, 0.59, 0.98);
+}
+
+.sounds-up{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.pp-icons i{
+    color: white;
+    margin-left: 10px;
+    border: 1px white solid;
+    width: 30px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: rgb(123, 77, 192);
+}
+
+.pp-icons i:hover{
+    background-color: rgb(162, 99, 255);
+}
+
+#closeSoundsBtn{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    border-radius: 6px;
+    padding: 5px;
+    font-weight: 600;
+    border: 2px solid rgb(93, 93, 93);
+}
+
+
+/* ---------------------------------------------------------------------------------- */
+
+
+
+.setting-content{
+    width: 80%;
+}
+.general{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.general label{
+    font-size: 1.3em;
+    font-weight: 600;
+    text-align: center;
+}
+
+#themes{
+    width: 90%;
+    border-radius: 3px;
+    text-align: center;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    padding: 3px ;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: 1px solid white;
+    align-self: center;
+}
+
+.setTime{
+    color: white;
+    display: none;
+    height: auto;
+}
+
+/* ---------------------------------profile section ------------------------------*/
+.accounts{
+    display: none;   
+    text-align: center;
+
+}
+
+.d{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#editUserNameBtn{
+    padding: 5px 5px;
+    font-size: 1.3em;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#editUserNameBtn:hover{
+    background-color: rgb(198, 198, 198);
+}
+
+
+.accounts h2{
+    color: white;
+    display: inline;
+}
+/* ------------------------------------------------------------------------------------ */
+
+.container{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.T-container label{
+    display: flex;
+    flex-direction: column;
+}
+
+.T-container h6{
+    color: gray;
+}
+
+.input{
+    width: 120px;
+    background-color: black;
+    border-radius: 4px;
+    border: 1px solid white;
+    padding: 3px 13px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+/* ----------------Alarm section--------------------------------- */
+.sounds{
+    display: none;   
+    height: 100%; 
+}
+
+.sounds-wraper{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+#sound-option{
+    background-color: black;
+    border-radius: 3px;
+    color: white;
+    padding: 3px 5px;
+    width: 70%;
+    border: 1px solid white;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.soundBar{
+    text-align: center;
+}
+
+#b{
+    color: white;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.soundOption{
+    text-align: center;
+}
+
+#volume-control{
+    width: 60%;
+    margin-top: 15px;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    -webkit-appearance: none;
+}
+
+#volume-control::-webkit-slider-runnable-track{
+    background-color: gray;
+    height: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#volume-control::-webkit-slider-thumb{
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 20px;
+    height: 20px;
+    top: -5px;
+    position: relative;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.Repeat{
+    font-size: 1.4em;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+}
+.Repeat input{
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.7em;
+    padding: 5px 5px;
+}
+
+/* -------------------------------------------------------------------------------- */
+.SC button{
+    border: none;
+    font-weight: 500;
+}
+
+.SC button:hover{
+    background-color: rgb(198, 198, 198); ;
+}
+
+#sound-option{
+    width: 90%;
+}
+
+/* ------------------------ Sounds Modal ---------------------------*/
+.sounds-main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+.S{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 33%;
+    height: 15vh;
+
+}
+
+.S p{
+    color: rgba(255, 255, 255, 0.799);
+    font-size: 0.7em;
+}
+
+.S button{
+    background-color: transparent;
+    cursor: pointer;  
+    border: none; 
+}
+.S button img{
+    width: 30%;
+}
+
+.S button img{
+    opacity: 0.6;
+}
+
+.S button.active img{
+    opacity: 1;
+}
+
+.VC{
+    display: none;
+}
+
+.VC.active{
+    display: block;
+    width: 80%;
+}
+
+#ST{
+    color: white;
+}
+/* ------------------------------------------------------------------------ */
+
+
+
+
+/* -------------------Greetings Modal -------------------------------------- */
+
+.userNameModal{
+    height: 50vh;
+    width: 40%;
+    align-self: center;
+    justify-self: center;
+    background-color: rgb(128, 93, 180);
+    color: white;
+    border-radius: 15px;
+    padding: 15px 15px;
+    animation: slide-down .8s cubic-bezier(0.01, 0.55, 0.54, 1) , fadeIn .8s cubic-bezier(0, 0.85, 0.56, 1.02)  ;
+}
+
+.userNameModal h1{
+    margin-bottom: 10px;
+}
+
+.userNameModal label{
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
+.Input{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+
+}
+.Input button{
+    border-radius: 5px;
+    border: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+.Input button:hover{
+    background-color: rgba(255, 255, 255, 0.8);
+}
+.Input input{
+    width: auto;
+    font-size: 1.4em;
+    border-radius: 10px;
+    border: 2px solid white;
+    background-color: rgba(128, 128, 128, 0.4);
+    color: white;
+}
+
+
+
+
+/* --------------------------------------------------------------------------------------------------- */
+
+/* animations */
+
+
+@keyframes fade{
+    from{opacity: 0%;}
+    to{opacity: 100%;}
+}
+
+@keyframes bgchange{
+    to{background-color: transparent;
+    color: white;}
+}
+
+@keyframes bgchange2{
+    to{background-color: white;
+    color: black;}
+}
+
+@keyframes rotation{
+    from{transform: rotateZ(0deg);}
+    to{transform: rotateZ(360deg);}
+}
+
+@keyframes fadeIn {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fadeOut {
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@keyframes BottomBorder{
+    from{border-bottom:2px solid rgb(0, 0, 0);}
+    to{border-bottom:2px solid white;}
+}
+
+@keyframes resetbtn{
+    to{
+        color: rgb(255, 255, 255);
+        background-color: red;
+        border: 1px solid red;  
+    }
+}
+
+@keyframes slide-down{
+    from{
+        transform: translateY(-50%);
+    }
+
+    to{
+        transform: translateY(0%);
+    }
+}
+
+@keyframes slide-up2{
+    from{
+        transform: translateY(0%);
+    }
+
+    to{
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes slide-Right {
+    from{transform: translateX(-450px);}
+    to{transform: translateX(0);}
+}
+
+@keyframes slide-Left {
+    from{transform: translateX(0px);}
+    to{transform: translateX(-450px);}
+}
+
+
+
+
+/* Keyframe animations */
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToRight {
+    from {
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutToLeft {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+}
+
+/* Apply animations */
+.page-fadeIn {
+    animation: fadeIn 0.3s forwards;
+}
+
+.page-fadeOut {
+    animation: fadeOut 0.3s forwards;
+}
+
+.page-enter-left {
+    animation: slideInFromLeft 0.3s forwards;
+}
+
+.page-exit-left {
+    animation: slideOutToLeft 0.3s forwards;
+}
+
+.hidden {
+    display: none; 
+    position: absolute; 
+}
+
+
+
+@media  only screen and (max-width : 1000px){
+
+    .topRight{
+        width: 100%;
+        text-align: center;
+    }
+
+    .general{
+        text-align: center;
+    }
+
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .T-container{
+        margin-bottom: 10px;
+    }
+
+    .soundOption{
+        text-align: center;
+    }
+
+    .Repeat{
+        text-align: center;
+    }
+
+    .setting-menu{
+        width:15%;
+    }
+
+    .modal{
+        width: 70%;
+        height: 70vh;
+    }
+
+}
+
+
+
+
+
+@media  only screen and (max-width : 850px){
+    .sounds-modal{
+        width: 80%;
+    }
+
+    .setting-menu{
+        width: 20%;
+    }
+
+    .modal{
+        width: 100%;
+        height: 70vh;
+    }
+
+    .modal-main{
+        height: 45vh;
+    }
+    .T-container{
+        margin-bottom: 0px;
+    }
+
+    .userNameModal{
+        width: 70%;
+    }
+
+}
+
+@media  only screen and (max-width : 600px){
+    .localTime{
+         font-size: 0.9em; 
+    }
+}
+
+@media  only screen and (max-width : 490px) {
+    .buttonsHolder{
+        width: 100%;
+    }
+    .buttonsHolder button{
+        margin: 5px;
+    }
+
+    .bottomMid{
+        width: 33%;
+    }
+    .bottomMid i{
+        font-size: 2em;
+        width: 35%;
+        border-radius: 12px;
+    }
+
+    .bottomRight {
+        width: 25%;
+        margin-left: 0;
+        text-align: center;
+    }
+    #sounds{
+        font-size: 2em;
+        width: auto;
+        border-radius: 12px;
+    }
+
+    .bottomLeft i{
+        font-size: 2em;
+        width: 35%;
+        border-radius: 12px;
+        padding: 5px 3px 7px;
+    }
+
+    .bottomLeft{
+        margin-right: 0;
+        width: 33%;
+    }
+
+
+    .sounds-modal{
+        width: 100%;
+    }
+
+    #greeting{
+        font-size: 2em;
+    }
+
+    .localTime{
+        width: 100%;
+    }
+
+    #Current-Time{
+        font-size: 8em;
+    }
+
+    .HomeTime{
+        height: 20vh;
+    }
+
+    .mainContent{
+        height: 60vh;
+        justify-content: center;
+    }
+
+    .bottomContent{
+        height: 20vh;
+    }
+
+    .topContent{
+        height: 20vh;
+    }
+
+    .HomeTime{
+        width: 100%;
+    }
+
+    .topRight{
+        width: 100%;
+        text-align: center;
+    }
+
+    .topRight h2{
+        font-size: 1em;
+    }
+
+    .topRight p{
+        font-size: 0.5em;
+    }
+
+    .ST{
+        font-size: 4em;
+    }
+
+    .userNameModal{
+        width: 100%;
+    }
+}
+
