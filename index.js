@@ -228,18 +228,22 @@ function formatTime(seconds) {
 function setSetting(){
     if(!userSettings){
         document.body.style.backgroundImage = `url(backgrounds/${Settings.Background.bg}.jpg)`;
-
+        NSvolume.value = userSettings.Alarm.volume
+        repeatAlarmNumber = userSettings.Repeat.Rp
+        notificationSound.value = userSettings.Alarm.alarm
+        document.getElementById("pomodoroTime").value = userSettings.MainTimer.time / 60
+        document.getElementById("longBreakTime").value = userSettings.LongTimer.time / 60
+        document.getElementById("shortBreakTime").value = userSettings.ShortTimer.time / 60
     }
     else{
         document.body.style.backgroundImage = `url(backgrounds/${Settings.Background.bg}.jpg)`;
-
+        NSvolume.value = Settings.Alarm.volume
+        repeatAlarmNumber = Settings.Repeat.Rp
+        notificationSound.value = Settings.Alarm.alarm
+        document.getElementById("pomodoroTime").value = Settings.MainTimer.time / 60
+        document.getElementById("longBreakTime").value = Settings.LongTimer.time / 60
+        document.getElementById("shortBreakTime").value = Settings.ShortTimer.time / 60
     }
-    NSvolume.value = userSettings.Alarm.volume
-    repeatAlarmNumber = userSettings.Repeat.Rp
-    notificationSound.value = userSettings.Alarm.alarm
-    document.getElementById("pomodoroTime").value = userSettings.MainTimer.time / 60
-    document.getElementById("longBreakTime").value = userSettings.LongTimer.time / 60
-    document.getElementById("shortBreakTime").value = userSettings.ShortTimer.time / 60
 }
 
 // update the time 
