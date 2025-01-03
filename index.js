@@ -486,8 +486,8 @@ function createSoundControl(){
 UpdateHomeTime()
 createSoundControl()
 
- localStorage.removeItem("userName")
-localStorage.removeItem("userSettings")
+ // localStorage.removeItem("userName")
+// localStorage.removeItem("userSettings")
 
 pausebtn.addEventListener('click', () => {
     isPaused = !isPaused;
