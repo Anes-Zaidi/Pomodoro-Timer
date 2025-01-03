@@ -146,15 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // These if statements should always be before the checkActiveClass
     if(!userSettings){
         localStorage.setItem("userSettings",JSON.stringify(Settings))
-    }
-
-    // checks if there is a userName already
-    if(!UserN){
-         userNameModal.showModal()
-    }
-    
-
-        if (pomodoro.classList.contains("active")) {
+         if (pomodoro.classList.contains("active")) {
         formatTime(Settings.MainTimer.time)
         remainingTime = Settings.MainTimer.time
     } else if (shortBreakBtn.classList.contains("active")) {
@@ -164,6 +156,15 @@ document.addEventListener("DOMContentLoaded", () => {
         formatTime(Settings.LongTimer.time)
         remainingTime = Settings.LongTimer.time
     }
+    }
+    else{
+        checkActiveClass()}
+
+    // checks if there is a userName already
+    if(!UserN){
+         userNameModal.showModal()
+    }
+    
     setInterval(UpdateHomeTime,1000)
     // Selects the home page
     HomePageBtn.classList.add("activeBtn")
