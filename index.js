@@ -154,7 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
 
-    checkActiveClass()
+        if (pomodoro.classList.contains("active")) {
+        formatTime(Settings.MainTimer.time)
+        remainingTime = Settings.MainTimer.time
+    } else if (shortBreakBtn.classList.contains("active")) {
+        formatTime(Settings.ShortTimer.time)
+        remainingTime = Settings.ShortTimer.time
+    } else if (longBreakBtn.classList.contains("active")) {
+        formatTime(Settings.LongTimer.time)
+        remainingTime = Settings.LongTimer.time
+    }
     setInterval(UpdateHomeTime,1000)
     // Selects the home page
     HomePageBtn.classList.add("activeBtn")
