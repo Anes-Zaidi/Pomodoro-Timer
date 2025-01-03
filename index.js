@@ -146,29 +146,20 @@ document.addEventListener("DOMContentLoaded", () => {
     // These if statements should always be before the checkActiveClass
     if(!userSettings){
         localStorage.setItem("userSettings",JSON.stringify(Settings))
-         if (pomodoro.classList.contains("active")) {
-        formatTime(Settings.MainTimer.time)
-        remainingTime = Settings.MainTimer.time
-    } else if (shortBreakBtn.classList.contains("active")) {
-        formatTime(Settings.ShortTimer.time)
-        remainingTime = Settings.ShortTimer.time
-    } else if (longBreakBtn.classList.contains("active")) {
-        formatTime(Settings.LongTimer.time)
-        remainingTime = Settings.LongTimer.time
     }
-    }
-    else{
-        checkActiveClass()}
+     
+
 
     // checks if there is a userName already
     if(!UserN){
          userNameModal.showModal()
     }
     
+    
     setInterval(UpdateHomeTime,1000)
     // Selects the home page
     HomePageBtn.classList.add("activeBtn")
-
+    checkActiveClass()
     profileName.innerHTML = `Your name : ${UserN}`
     setSetting()
     themes.value = userSettings.Background.bg
@@ -198,16 +189,31 @@ function checkActiveClass() {
     clearInterval(countdown)
     isPaused = true
 
-    if (pomodoro.classList.contains("active")) {
-        formatTime(userSettings.MainTimer.time)
-        remainingTime = userSettings.MainTimer.time
-    } else if (shortBreakBtn.classList.contains("active")) {
-        formatTime(userSettings.ShortTimer.time)
-        remainingTime = userSettings.ShortTimer.time
-    } else if (longBreakBtn.classList.contains("active")) {
-        formatTime(userSettings.LongTimer.time)
-        remainingTime = userSettings.LongTimer.time
+    if(userSettings){
+        if (pomodoro.classList.contains("active")) {
+            formatTime(userSettings.MainTimer.time)
+            remainingTime = userSettings.MainTimer.time
+        } else if (shortBreakBtn.classList.contains("active")) {
+            formatTime(userSettings.ShortTimer.time)
+            remainingTime = userSettings.ShortTimer.time
+        } else if (longBreakBtn.classList.contains("active")) {
+            formatTime(userSettings.LongTimer.time)
+            remainingTime = userSettings.LongTimer.time
+        }   
     }
+    else{
+        if (pomodoro.classList.contains("active")) {
+            formatTime(Settings.MainTimer.time)
+            remainingTime = Settings.MainTimer.time
+        } else if (shortBreakBtn.classList.contains("active")) {
+            formatTime(Settings.ShortTimer.time)
+            remainingTime = Settings.ShortTimer.time
+        } else if (longBreakBtn.classList.contains("active")) {
+            formatTime(Settings.LongTimer.time)
+            remainingTime = Settings.LongTimer.time
+        }
+    }
+    
 
     verifyIfPaused(isPaused)
 }
@@ -220,7 +226,14 @@ function formatTime(seconds) {
 }
 
 function setSetting(){
-    document.body.style.backgroundImage = `url(backgrounds/${userSettings.Background.bg}.jpg)`;
+    if(!userSettings){
+        document.body.style.backgroundImage = `url(backgrounds/${Settings.Background.bg}.jpg)`;
+
+    }
+    else{
+        document.body.style.backgroundImage = `url(backgrounds/${Settings.Background.bg}.jpg)`;
+
+    }
     NSvolume.value = userSettings.Alarm.volume
     repeatAlarmNumber = userSettings.Repeat.Rp
     notificationSound.value = userSettings.Alarm.alarm
@@ -486,8 +499,8 @@ function createSoundControl(){
 UpdateHomeTime()
 createSoundControl()
 
- // localStorage.removeItem("userName")
-// localStorage.removeItem("userSettings")
+localStorage.removeItem("userName")
+localStorage.removeItem("userSettings")
 
 pausebtn.addEventListener('click', () => {
     isPaused = !isPaused;
@@ -708,14 +721,4 @@ editUserNameBtn.addEventListener('click',()=>{
     }
 })
 
-
-
-  
-
-// to do ---------------------------------------------------------------
-
-
-// fix the sounds styling
-
-//dir functionement ta3 sound bar 
 
