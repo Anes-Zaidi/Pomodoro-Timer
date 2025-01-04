@@ -226,8 +226,8 @@ function formatTime(seconds) {
 }
 
 function setSetting(){
-    if(!userSettings){
-        document.body.style.backgroundImage = `url(backgrounds/${Settings.Background.bg}.jpg)`;
+    if(userSettings){
+        document.body.style.backgroundImage = `url(backgrounds/${userSettings.Background.bg}.jpg)`;
         NSvolume.value = userSettings.Alarm.volume
         repeatAlarmNumber = userSettings.Repeat.Rp
         notificationSound.value = userSettings.Alarm.alarm
