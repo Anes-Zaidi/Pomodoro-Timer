@@ -1044,7 +1044,7 @@ dialog::backdrop{
         width: 100%;
     }
 
-    .input{
+    #userNameInput{
         width:80%
         margin-bottom:10px
     }
