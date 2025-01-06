@@ -100,7 +100,7 @@ let soundConfig = [
     {
         id: "Quran" ,
         audiosrc : "backgroundSounds/quran.mp3" ,
-        icon : "soundIcons/kabba.png" ,
+        icon : "soundIcons/kaaba.png" ,
         label : "Quran"
     } ,
     {
