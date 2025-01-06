@@ -98,6 +98,12 @@ let soundConfig = [
         label : "Cat purs"
     } ,
     {
+        id: "Quran" ,
+        audiosrc : "backgroundSounds/quran.mp3" ,
+        icon : "soundIcons/kabba.png" ,
+        label : "Quran"
+    } ,
+    {
         id: "Rain & thunder" ,
         audiosrc : "backgroundSounds/RainThunder.mp3" ,
         icon : "soundIcons/thunder_cloud_and_rain.png" ,
