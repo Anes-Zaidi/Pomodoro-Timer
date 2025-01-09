@@ -677,6 +677,7 @@ dialog::backdrop{
 .userNameModal{
     height: 50vh;
     width: 40%;
+    display: flex ;
     align-self: center;
     justify-self: center;
     background-color: rgb(128, 93, 180);
