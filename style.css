@@ -33,10 +33,15 @@ body::before{
 
 .topRight{
     padding: 40px 45px;
-    font-size: 1.3em;
+    font-size: 2em;
     color: white;
     width:80% ;
 }
+
+.topRight p{
+    font-size: 1em;
+}
+
 
 /* --------------------------------------------------------------------------------------------- */
 
