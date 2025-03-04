@@ -403,17 +403,17 @@ function displaySavedName(){
         else if(date.getHours() <= 11){
             GreetingText.innerHTML = `Good morning ${savedName.toUpperCase()}!,`  
             Mtext.innerHTML = "Let's make this day count"
-        }else if(date.getHours() <= 17){
+        }else if(date.getHours() <= 18){
             GreetingText.innerHTML = `Good Afternoon ${savedName.toUpperCase()}!,`  
-            Mtext.innerHTML = "Gotta keep working!"
+            Mtext.innerHTML = "Ftour is close, keep it going!"
 
         }else if(date.getHours() <= 22){
-            GreetingText.innerHTML = `Good Evening ${savedName.toUpperCase()}!,`  
+            GreetingText.innerHTML = `Sa7a ftourek ${savedName.toUpperCase()}!,`  
             Mtext.innerHTML = "You did good so far, keep it going!"
 
         }
         else if(date.getHours() <= 24){
-            GreetingText.innerHTML = `Good Night ${savedName.toUpperCase()}!,`  
+            GreetingText.innerHTML = `Sa7a ftourek ${savedName.toUpperCase()}!,`  
             Mtext.innerHTML = "Time to recharge for tomorow"
         }
         
