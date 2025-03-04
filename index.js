@@ -408,12 +408,12 @@ function displaySavedName(){
             Mtext.innerHTML = "Ftour is close, keep it going!"
 
         }else if(date.getHours() <= 22){
-            GreetingText.innerHTML = `Sa7a ftourek ${savedName.toUpperCase()}!,`  
+            GreetingText.innerHTML = `Sa7a Ftourek ${savedName.toUpperCase()}!,`  
             Mtext.innerHTML = "You did good so far, keep it going!"
 
         }
         else if(date.getHours() <= 24){
-            GreetingText.innerHTML = `Sa7a ftourek ${savedName.toUpperCase()}!,`  
+            GreetingText.innerHTML = `Sa7a Ftourek ${savedName.toUpperCase()}!,`  
             Mtext.innerHTML = "Time to recharge for tomorow"
         }
         
